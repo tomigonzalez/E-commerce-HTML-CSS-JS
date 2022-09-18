@@ -91,7 +91,7 @@ const mostrarAlerta = (mensaje) => {
     
     setTimeout(() => {
       divAlert.remove();
-    },1000000000);
+    },6000);
   }
 };
 function enviarId(i) {
@@ -100,13 +100,13 @@ function enviarId(i) {
     
     if (!pizzaId) {
       mostrarAlerta("Tu id no cumple los requisitos (id del 1 al 6)");
-      reset();
+      
       return;
     }
   
     if (pizzaId <= 0 || pizzaId > pizzas.length) {
       mostrarAlerta("Tu id no cumple los requisitos (id del 1 al 6)");
-      reset();
+    
       return; 
     }
     
