@@ -80,7 +80,7 @@ window.onload = (e) => {
   let nombrePizza = document.getElementById('nombrePizza');
   let ingredientesPizza = document.getElementById('ingredientesPizza');
   let imgPizza = document.getElementById('imgPizza');
-  console.log(localStorage.getItem);
+ 
 
   if (localStorage.length > 0) {
       precioPizza.textContent = localStorage.getItem("precioPizza");
