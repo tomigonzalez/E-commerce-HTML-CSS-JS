@@ -1,0 +1,111 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(circle, rgba(110,110,110,1) 0%, rgba(54,54,57,1) 82%);
+}
+
+input {
+  width: 10%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: .3s;
+  margin: 10px;
+}
+
+.texts {
+  font-weight: bolder;
+}
+
+#buscar-pizza:hover {
+  background-color: #5c597e;
+}
+
+
+#container- {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: baseline;
+}
+
+button {
+  height: 3em;
+  width: 10%;
+  cursor: pointer;
+  background-color: #484276;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  
+}
+
+input:focus {
+  
+ box-shadow: rgb(255, 0, 217) 0 0 10PX 0;
+}
+
+.card {
+  background: radial-gradient(circle, rgba(182,182,182,1) 0%, rgba(73,73,80,1) 82%);
+  position: relative;
+  margin: 15px auto;
+  width: 450px;
+  padding: 20px;
+  box-shadow: 3px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 90px;
+  border: 0;
+  
+}
+  .circle {
+      border-radius: 3px;
+      width: 150px;
+      height: 150px;
+      background: black;
+      position: absolute;
+      right: 0px;
+      top: 0;
+      background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+      border-bottom-left-radius: 170px;
+  }
+  .content {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+  }
+  h1 {
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 0;
+  }
+  h2 {    border-bottom: dotted;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      font-weight: 300;
+  }
+  .social {
+      margin-bottom: 5px;}
+  a {
+          color: black;
+          margin-left: 8px;
+          font-weight: 300;}
+  i {
+              font-weight: 400;
+          }
+      
+  
+  .location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;}
+  i {
+          color: red;
+      }
+  p {
+          font-weight: 300;
+      }
+  

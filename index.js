@@ -1,9 +1,6 @@
-const h2 = document.getElementById("nom");
-const h4 = document.getElementById("costo");
-const input = document.querySelector("input");
-const botonEnviar = document.getElementById("enviar");
-const conte = document.getElementById("contenedor");
-const pizzas = [
+
+
+const pizzas= [
   {
     id: 1,
     nombre: "Mozzarella",
@@ -14,6 +11,8 @@ const pizzas = [
       "aceitunas",
     ],
     precio: 1200,
+    imagen: 'img/pngegg (1).png',
+
   },
   {
     id: 2,
@@ -25,6 +24,8 @@ const pizzas = [
       "aceite de oliva",
     ],
     precio: 1400,
+    imagen: 'img/pngegg.png',
+
   },
   
   {
@@ -38,6 +39,8 @@ const pizzas = [
       "queso parmesano",
     ],
     precio: 1900,
+    imagen: 'img/pngegg (2).png',
+
   },
   {
     id: 4,
@@ -51,66 +54,85 @@ const pizzas = [
       "aceitunas",
     ],
     precio: 1500,
+    imagen: 'img/pngegg (3).png',
+
   },
   {
     id: 5,
     nombre: "Fugazzeta",
-    ingredientes: ["Cebolla","queso mozzarella",],
+    ingredientes: ["Cebolla ","queso mozzarella ",],
     precio: 1600,
-  },
-  {
+    imagen: 'img/pngegg (5).png',
+}
+  
+ , {
     id: 6,
     nombre: "Suprema",
     ingredientes: ["queso tybo", "cebolla", "panceta", "huevo"],
     precio: 1400,
-  }
+    imagen: 'img/pngegg (4).png',
+}
+  
 ];
-botonEnviar.addEventListener("click", enviarId);
 
+window.onload = (e) => {
+  let precioPizza = document.getElementById('precioPizza');
+  let nombrePizza = document.getElementById('nombrePizza');
+  let ingredientesPizza = document.getElementById('ingredientesPizza');
+  let imgPizza = document.getElementById('imgPizza');
+  console.log(localStorage.getItem);
 
-//Muestro en pantalla
-const renderPizza = (pizza) => {
-  const { nombre, precio } = pizza; 
-  h2.innerHTML = `<span class= "text-small">Nombre: </span>${nombre}`;
-  
-  h4.innerHTML = `<span class= "text-small">Precio: </span>${precio}`;
-};
+  if (localStorage.length > 0) {
+      precioPizza.textContent = localStorage.getItem("precioPizza");
 
-// creo la alerta
-const mostrarAlerta = (mensaje) => {
- 
-  const existeAlerta = document.querySelector(".m-auto");
-  if (!existeAlerta) {
-   
-    const divAlert = document.createElement("div");
-    divAlert.classList.add("text-center", "m-auto");
-    divAlert.innerHTML = `
-    <p class="alert">${mensaje}</p>
-    `;
-    conte.appendChild(divAlert);
-    
-    setTimeout(() => {
-      divAlert.remove();
-    },6000);
+      nombrePizza.textContent = localStorage.getItem("nombrePizza");
+
+      ingredientesPizza.textContent = localStorage.getItem("ingredientesPizza");
+
+      imgPizza.setAttribute('src', localStorage.getItem('imagenPizza'));
+  } else {
+      imgPizza.setAttribute('src', 'img/pngegg (6).png');
   }
 };
-function enviarId(i) {
-    i.preventDefault();
-    const pizzaId = parseInt(input.value);
-    
-    if (!pizzaId) {
-      mostrarAlerta("Tu id no cumple los requisitos (id del 1 al 6)");
-      
-      return;
-    }
-  
-    if (pizzaId <= 0 || pizzaId > pizzas.length) {
-      mostrarAlerta("Tu id no cumple los requisitos (id del 1 al 6)");
-    
-      return; 
-    }
-    
-    const resultado = pizzas.find((pizza) => pizza.id === pizzaId);
-    renderPizza(resultado); 
-  }
 
+
+let listado = document.getElementById('listadoPizzas');
+
+const buscarPizza = () => {
+  let valueid = document.getElementById('valueId').value;
+  let precioPizza = document.getElementById('precioPizza');
+  let nombrePizza = document.getElementById('nombrePizza');
+  let ingredientesPizza = document.getElementById('ingredientesPizza');
+  let inputVacio = document.getElementById('inputVacio');
+  let imgPizza = document.getElementById('imgPizza');
+  inputVacio.textContent = "";
+  precioPizza.textContent = "";
+  nombrePizza.textContent = "";
+  ingredientesPizza.textContent = "";
+  imgPizza.setAttribute('src', 'img/pngegg (6).png');
+
+  
+
+  let found = pizzas.find(function(post, i) {
+      inputVacio.textContent = ""
+      if (post.id == valueid) {
+          precioPizza.textContent = post.precio;
+          localStorage.setItem("precioPizza", post.precio);
+
+          nombrePizza.textContent = post.nombre;
+          localStorage.setItem("nombrePizza", post.nombre);
+
+          ingredientesPizza.textContent = post.ingredientes.join(", ");
+          localStorage.setItem("ingredientesPizza", post.ingredientes);
+          
+          imgPizza.setAttribute('src', post.imagen);
+          localStorage.setItem("imagenPizza", post.imagen);
+          return true;
+      }
+  });
+
+  if (found == undefined) return inputVacio.textContent = "El codigo ingresado es incorrecto."
+  if (valueid === "") return inputVacio.textContent = "Debes ingresar un valor numerico."
+
+
+}

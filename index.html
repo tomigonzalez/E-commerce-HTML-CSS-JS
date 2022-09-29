@@ -2,24 +2,36 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E2</title>
-  <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/index.css">
+    <title>E3 PIZZAS</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c8ee3dd930.js"></script>
 </head>
 
 <body>
-  <div class="container " id="contenedor">
-    <h2 class="" id="nom"></h2>
-    <h4 class="" id="costo"></h4>
-    <div class="cont">
-      <span>Ingrese el ID de la pizza</span>
-      <input type="number" name="pizza-id">
-      <button id="enviar">Enviar</button>
+    <div id="listadoPizzas" style="text-align: center;">
+        <div>
+            <div class="card">
+                <h2>Elegi tu pizza</h2>
+                <img id="imgPizza" src="" alt="Avatar" style="width:30%">
+                <div class="container">
+                    <p>Pizza: <span class="texts" id="nombrePizza"> </span></p>
+                    <p>Precio: <span class="texts" id="precioPizza"></span></p>
+                    <p>Ingredientes: <span class="texts" id="ingredientesPizza"></span>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <input type="number" value="" id="valueId">
+            <button id="buscar-pizza" onclick="buscarPizza()" type="button">Buscar</button>
+        </div>
+        <p id="inputVacio"> </p>
     </div>
-  </div>
-  <script src="index.js"></script>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
