@@ -122,7 +122,7 @@ const buscarPizza = () => {
           nombrePizza.textContent = post.nombre;
           localStorage.setItem("nombrePizza", post.nombre);
 
-          ingredientesPizza.textContent = post.ingredientes.join(", ");
+          ingredientesPizza.textContent = post.ingredientes.join(" , ");
           localStorage.setItem("ingredientesPizza", post.ingredientes);
           
           imgPizza.setAttribute('src', post.imagen);
